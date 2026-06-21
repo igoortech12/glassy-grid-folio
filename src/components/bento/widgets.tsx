@@ -1,19 +1,34 @@
-import {
-  Instagram,
-  Linkedin,
-  Github,
-  Youtube,
-  MapPin,
-  Sparkles,
-  TrendingUp,
-  Mail,
-  ArrowUpRight,
-  Music2,
-} from "lucide-react";
+import { MapPin, Sparkles, TrendingUp, Mail, ArrowUpRight, Music2 } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 import type { Widget } from "@/lib/mock-data";
 import { profileData } from "@/lib/mock-data";
 
-const SOCIAL_META: Record<string, { Icon: typeof Instagram; bg: string; label: string }> = {
+type IconCmp = ComponentType<SVGProps<SVGSVGElement>>;
+
+const Instagram: IconCmp = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+  </svg>
+);
+const Linkedin: IconCmp = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V21H9z" />
+  </svg>
+);
+const Github: IconCmp = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.72 1.27 3.39.97.1-.75.4-1.27.74-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.48.11-3.08 0 0 .97-.31 3.19 1.18a11.1 11.1 0 0 1 5.8 0c2.22-1.49 3.19-1.18 3.19-1.18.63 1.6.23 2.78.11 3.08.75.81 1.2 1.84 1.2 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z" />
+  </svg>
+);
+const Youtube: IconCmp = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.55 3.5 12 3.5 12 3.5s-7.55 0-9.4.58A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12c1.85.58 9.4.58 9.4.58s7.55 0 9.4-.58a3 3 0 0 0 2.1-2.12A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z" />
+  </svg>
+);
+
+const SOCIAL_META: Record<string, { Icon: IconCmp; bg: string; label: string }> = {
   instagram: { Icon: Instagram, bg: "from-pink-500/30 to-orange-400/20", label: "Instagram" },
   linkedin: { Icon: Linkedin, bg: "from-sky-500/30 to-blue-600/20", label: "LinkedIn" },
   github: { Icon: Github, bg: "from-slate-300/20 to-slate-500/10", label: "GitHub" },
